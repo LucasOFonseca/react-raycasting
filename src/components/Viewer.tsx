@@ -169,7 +169,7 @@ function sketch(p5: P5CanvasInstance) {
   };
 
   p5.setup = () => {
-    p5.createCanvas(p5.windowWidth, p5.windowWidth);
+    p5.createCanvas(p5.windowWidth, p5.windowHeight);
 
     textures = {
       1: {
@@ -231,9 +231,9 @@ function sketch(p5: P5CanvasInstance) {
   };
 
   p5.windowResized = () => {
-    p5.resizeCanvas(p5.windowWidth, p5.windowWidth);
+    p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
 
-    renderBuffer.resizeCanvas(p5.windowWidth, p5.windowWidth);
+    renderBuffer.resizeCanvas(p5.windowWidth, p5.windowHeight);
     renderBuffer.noSmooth();
   };
 
