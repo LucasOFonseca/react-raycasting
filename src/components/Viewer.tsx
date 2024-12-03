@@ -243,7 +243,7 @@ function sketch(p5: P5CanvasInstance) {
 
     p5.background(12);
 
-    if (p5.keyIsDown(p5.UP_ARROW)) {
+    if (p5.keyIsDown(p5.UP_ARROW) || p5.keyIsDown(87)) {
       if (
         map[Math.floor(position.x + direction.x * moveSpeed)][
           Math.floor(position.y)
@@ -263,7 +263,7 @@ function sketch(p5: P5CanvasInstance) {
       clampPlayerToWall();
     }
 
-    if (p5.keyIsDown(p5.DOWN_ARROW)) {
+    if (p5.keyIsDown(p5.DOWN_ARROW) || p5.keyIsDown(83)) {
       if (
         map[Math.floor(position.x - direction.x * moveSpeed)][
           Math.floor(position.y)
@@ -283,7 +283,7 @@ function sketch(p5: P5CanvasInstance) {
       clampPlayerToWall();
     }
 
-    if (p5.keyIsDown(p5.LEFT_ARROW)) {
+    if (p5.keyIsDown(p5.LEFT_ARROW) || p5.keyIsDown(65)) {
       let oldX = direction.x;
 
       direction.x =
@@ -304,7 +304,7 @@ function sketch(p5: P5CanvasInstance) {
         oldX * Math.sin(-rotationSpeed) + camPlane.y * Math.cos(-rotationSpeed);
     }
 
-    if (p5.keyIsDown(p5.RIGHT_ARROW)) {
+    if (p5.keyIsDown(p5.RIGHT_ARROW) || p5.keyIsDown(68)) {
       let oldX = direction.x;
 
       direction.x =
