@@ -1,50 +1,45 @@
-# React + TypeScript + Vite
+# Raycasting Engine
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **simple raycasting engine**, inspired by classic 2.5D rendering techniques used in games like _Wolfenstein 3D_. This project was created to study and implement the fundamentals of raycasting in games and simulations, featuring texture support.
 
-Currently, two official plugins are available:
+<img width="100%" src=".github/demo.gif"/>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- 🖼️ **2.5D Rendering** using efficient raycasting techniques.
+- 🧱 **Textured Walls**.
+- 🎮 **Smooth Player Movement**, with rotation and strafing support.
+- 🚪 **Map Maker** for a custom exploration.
+- 💡 **Basic Lighting Simulation**, with simple shading effects.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Controls
 
-- Configure the top-level `parserOptions` property like this:
+- W/S: Move forward/backward;
+- A/D: Rotate left/right;
+- Arrow keys: Alternate movement controls.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## How it works
+
+#### Raycasting
+
+The system uses the _raycasting_ technique, which projects rays in a 2D grid to determine visible objects and renders them with perspective. Each ray calculates wall intersections, creating the illusion of depth in a pseudo-3D view.
+
+#### Maps
+
+Maps are represented as 2D arrays, where each number corresponds to a block type or empty space. For example:
+
+```JavaScript
+const map = [
+  [1, 1, 1, 1, 1],
+  [1, 0, 0, 0, 1],
+  [1, 0, 2, 0, 1],
+  [1, 1, 1, 1, 1]
+]
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Acknowledgments
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Inspired by: _Wolfenstein 3D_ and other classic raycasting games.
+- Tools used: [p5.js](https://p5js.org) and a lot of patience.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+\*_This implementation was madded following [this](https://lodev.org/cgtutor/raycasting.html) article_
